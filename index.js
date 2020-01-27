@@ -30,23 +30,66 @@ const books = [
 
 //first create 4 li items (one for each book)
 
+// creating a new array with the img, title, and inverted name of the author
+
+let changedAuthor = books.map(book => {
+  let bookAuthor = book.author.split(' '); 
+  book.author = bookAuthor.reverse().join(",");
+  // console.log(book);
+  return book
+});
+
+// ordering alphabetically according to the last name of the author
+
+let sortedBooks = changedAuthor.sort((a,b) => {
+  if(a.author.charAt(0) > b.author.charAt(0)) {
+    return 1
+  } else {
+    return -1
+  }
+});
+// console.log(SortedBooks);
+
 const ul = document.querySelector("ul");
 
-books.forEach(book => {
+sortedBooks.forEach(book => {
   const li = document.createElement("li");
   ul.appendChild(li);
-  //reverse name and last name
-  const author = book.author;
-  console.log(author);
-  const splitAuthor = author.split(' '); 
-  console.log(splitAuthor.reverse());
-  // console.log(arrayOfAuthors.reverse());
-
-  // const author = [...book.author];
-  // console.log(author.split(``));
-  // console.log(Array.isArray(author))
-  // console.log(author.reverse());
+  // name and last name of the author
+  const h2 = document.createElement("h2");
+  const title = book.title;
+  h2.textContent = book.title
+  li.appendChild(h2);
   
+  
+  
+
+  // create img element and set the attibute
+  const img = document.createElement("img");
+  img.setAttribute("src", book.img);
+
+  const h3 = document.createElement("h3");
+  h3.textContent = book.author
+  li.appendChild(h3);
+  
+  
+  // name and last name put into one array separated 
+ 
+
+  // text for read or to be read part
+  const p = document.createElement("p");
+  if (book.alreadyRead === true) {
+    const readOrNotRead = document.createTextNode("Read")
+    p.appendChild(readOrNotRead);
+  } else {
+    const readOrNotRead = document.createTextNode("To read")
+    p.appendChild(readOrNotRead);
+  }
+
+  li.appendChild(img);
+  li.appendChild(p);
+
+
 
 });
 
