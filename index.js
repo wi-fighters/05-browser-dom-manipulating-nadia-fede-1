@@ -27,3 +27,33 @@ const books = [
     img: "https://eloquentjavascript.net/img/cover.jpg"
   }
 ];
+
+//first create 4 li items (one for each book)
+
+const ul = document.querySelector("ul");
+
+books.forEach(book => {
+  const li = document.createElement("li");
+  ul.appendChild(li);
+  //reverse name and last name
+  const author = book.author;
+  console.log(author);
+  const splitAuthor = author.split(' '); 
+  console.log(splitAuthor.reverse());
+  // console.log(arrayOfAuthors.reverse());
+
+  // const author = [...book.author];
+  // console.log(author.split(``));
+  // console.log(Array.isArray(author))
+  // console.log(author.reverse());
+  
+
+});
+
+//Display the book details on the page, such as author's name, book title and reading status. The authors' last names should appear first e.g. "Smith, John".
+//The book cover should appear above the book details and the image should link to the URL of the book cover. 
+//The styling of reading status should be updated depending on whether the book has been read
+//Furthermore, the books should be displayed on the page in alphabetical order according to the authors'
+
+
+
