@@ -1,20 +1,30 @@
 .book-list {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    list-style: none;
   }
   
-  .book {
-    width: 12rem;
+.book {
+    width:12rem;
   }
   
-  .status {
+.status {
     font-style: italic;
-  }
+}
   
-  .book-cover {
+.book-cover {
     max-height: 15rem;
     object-fit: cover;
     border: 0.2rem solid black;
-  }
+}
+
+.img-height {
+  height: 200px;
+}
   
+h3 {
+  font-size: 0.5rem;
+};
+
+li {
+  position: relative;
+}
+
